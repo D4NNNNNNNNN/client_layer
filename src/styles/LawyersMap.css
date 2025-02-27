@@ -1,0 +1,75 @@
+.map-container {
+    width: 100%;
+    max-width: 600px; /* ניתן להתאים לפי גודל העיצוב */
+    height: 400px;
+    margin: auto; /* יישור מרכזי */
+    border-radius: 10px;
+    overflow: hidden; /* שלא יגלוש מחוץ למסגרת */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* אפקט הצללה */
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        width: 90%; /* התאמה למסכים קטנים */
+        height: 300px;
+    }
+}
+
+
+.map-title {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+.lawyer-popup {
+    text-align: right;
+    direction: rtl;
+    padding: 5px;
+    min-width: 200px;
+}
+
+.lawyer-popup h3 {
+    color: #1a237e;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.lawyer-popup p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.call-lawyer-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.call-lawyer-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 10px;
+    text-align: right;
+    direction: rtl;
+}
+
+.leaflet-popup-content {
+    margin: 10px;
+    min-width: 200px;
+} 

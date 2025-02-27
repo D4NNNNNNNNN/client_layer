@@ -1,0 +1,56 @@
+.about-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 32px;
+    color: #0d47a1;
+    margin-bottom: 10px;
+  }
+  
+  .about-subtitle {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .about-content {
+    text-align: right;
+  }
+  
+  .about-section {
+    margin-bottom: 30px;
+  }
+  
+  .about-section h2 {
+    font-size: 24px;
+    color: #0d47a1;
+    margin-bottom: 10px;
+  }
+  
+  .about-section p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .about-values {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about-values li {
+    font-size: 18px;
+    color: #333;
+    background: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,178 @@
+/* 🎨 כללי */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* 🔹 ניווט */
+  .navbar {
+    background-color: #0d47a1; /* כחול כהה */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #ffcc00; /* צהוב בהיר ב-hover */
+  }
+  
+  /* 🏠 דף הבית */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  /* 🔍 אזור חיפוש ומפה */
+  .top-section {
+    display: flex;
+    gap: 20px;
+    height: 350px; /* גובה מוקטן של המפה */
+  }
+  
+  /* 🎯 חיפוש */
+  .search-container {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .search-container h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #0d47a1; /* צבע כותרת בכחול כהה */
+  }
+  
+  .search-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 📌 חיפוש עם מסננים */
+  .search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .search-form input, 
+  .search-form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .search-form input {
+    width: 60%;
+  }
+  
+  .search-form select {
+    width: 30%;
+  }
+  
+  .search-form .button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .search-form .button:hover {
+    background: #0056b3;
+  }
+  
+  /* 🗺️ מפה */
+  .map-container {
+    flex: 1;
+    height: 350px; /* גובה קטן יותר */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 📌 תחומי התמחות */
+  .specialties-section {
+    text-align: center;
+  }
+  
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .specialty-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .specialty-card:hover {
+    background: #e3f2fd;
+  }
+  
+  .specialty-icon {
+    font-size: 24px;
+  }
+  
+  /* 🟦 כפתורים */
+  .button {
+    background: #0d47a1;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .button:hover {
+    background: #083b82;
+  }
+
+  .app {
+    margin-top: 80px; /* ✅ מבטיח שהתוכן לא יוסתר ע"י הניווט */
+    padding: 20px;
+  }
+
+  
+  
+  

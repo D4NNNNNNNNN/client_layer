@@ -1,0 +1,30 @@
+/* src/styles/Carousel.css */
+.carousel-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .carousel-slide {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel-slide h3 {
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .carousel-slide p {
+    color: #666;
+    font-size: 1rem;
+  }
+  .mySwiper {
+    width: 100%;
+    height: 300px; /* או כל גובה אחר שתרצה */
+    background: #f8f9fa;
+  }
+  
+  

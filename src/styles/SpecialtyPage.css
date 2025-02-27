@@ -1,0 +1,115 @@
+.specialty-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* 🎯 עיצוב הגריד - יצירת ריבועים מסודרים */
+  .lawyers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* מחלק את הרוחב לריבועים */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* 📌 כרטיס של עורך דין */
+  .lawyer-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px;
+    min-height: 350px; /* קובע גובה אחיד לכל הכרטיסים */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .lawyer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* 🏛️ כותרת */
+  .lawyer-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .lawyer-avatar {
+    font-size: 40px;
+  }
+  
+  .lawyer-info {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .lawyer-description {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  /* 🏷️ תחומי התמחות */
+  .lawyer-expertise {
+    margin-top: 10px;
+  }
+  
+  .expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+  .expertise-tag {
+    background: #e3f2fd;
+    color: #0d47a1;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* ⭐ דירוג וביקורות */
+  .lawyer-rating {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .stars {
+    color: gold;
+    font-size: 18px;
+  }
+  
+  /* 📞 כפתור צור קשר */
+  .contact-button {
+    background: #0d47a1;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .contact-button:hover {
+    background: #083b82;
+  }
+  

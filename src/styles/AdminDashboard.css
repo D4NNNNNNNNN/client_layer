@@ -1,0 +1,115 @@
+.admin-dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    direction: rtl;
+}
+
+.admin-dashboard h1 {
+    color: #1a237e;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.requests-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.request-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.request-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.request-header h3 {
+    margin: 0;
+    color: #1a237e;
+}
+
+.request-status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    background: #e3f2fd;
+    color: #1a237e;
+}
+
+.request-details {
+    margin-bottom: 20px;
+}
+
+.request-details p {
+    margin: 8px 0;
+}
+
+.request-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.request-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.approve-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.edit-btn {
+    background: #2196f3;
+    color: white;
+}
+
+.reject-btn {
+    background: #f44336;
+    color: white;
+}
+
+.request-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-form input,
+.edit-form textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.edit-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} 
