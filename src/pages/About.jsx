@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/About.css'; // קובץ CSS מסודר
 
 function About() {
-  let x = 6; 
+  let x = 7; 
   return (
     <div className="about-container">
       <h1 className="about-title">אודות LawLink</h1>
