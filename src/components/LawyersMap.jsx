@@ -6,8 +6,8 @@ import '../styles/LawyersMap.css';
 
 // תיקון לאייקונים של Leaflet
 const icon = L.icon({
-    iconUrl: '/images/icon-map.jpeg',
-    iconRetinaUrl: '/images/icon-map.jpeg',
+    iconUrl: '/images/location.png',
+    iconRetinaUrl: '/images/location.png',
     shadowUrl: '/marker-shadow.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
@@ -44,7 +44,44 @@ function LawyersMap() {
             position: [31.2516, 34.7913], // באר שבע
             specialty: "דיני נזיקין",
             phone: "053-1234567"
-        }
+        },
+        {
+            id: 5,
+            name: "עו״ד אלון מזרחי",
+            position: [32.057311,34.822424],
+            specialty: "תעוברה",
+            phone: "055-2719568"
+         },
+         {
+            id: 6,
+            name: "עו״ד יוסף ישראלי",
+            position: [31.933225,34.988707],
+            specialty: "פלילי",
+            phone: "055-7878665"
+    },
+    {
+        id: 7,
+        name: "עו״ד יעל אהרוני ",
+        position: [31.544977,34.925011],
+        specialty: "דיני משפחה",
+        phone: "055-0909887"
+},
+{
+    id: 8,
+    name: "עו״ד  יונתן ברק ",
+    position: [32.648326,35.316151],
+    specialty: " הוצאה לפועל",
+    phone: "055-5678656"
+},
+{
+    id: 9,
+    name: "עו״ד איתמר שלמה ",
+    position: [32.563051,35.023989],
+    specialty: "  נד״לן",
+    phone: "055-9876565"
+},
+
+
     ]);
 
     return (
