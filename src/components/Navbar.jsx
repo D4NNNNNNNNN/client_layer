@@ -34,8 +34,19 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* לוגו + קישור לדף הבית */}
-        <Link to="/" className="navbar-logo">LawLink</Link>
+        <div className="auth-controls">
+          {loggedIn && (
+            <button 
+              className="add-lawyer-button" 
+              onClick={() => setShowAddLawyerModal(true)}
+            >
+              ➕
+            </button>
+          )}
+          <button className="auth-button" onClick={handleAuthClick}>
+            {loggedIn ? 'התנתק' : 'התחבר'}
+          </button>
+        </div>
 
         {/* תפריט הניווט */}
         <ul className="nav-menu">
@@ -60,19 +71,8 @@ function Navbar() {
           )}
         </ul>
 
-        <div className="auth-controls">
-          {loggedIn && (
-            <button 
-              className="add-lawyer-button" 
-              onClick={() => setShowAddLawyerModal(true)}
-            >
-              ➕
-            </button>
-          )}
-          <button className="auth-button" onClick={handleAuthClick}>
-            {loggedIn ? 'התנתק' : 'התחבר'}
-          </button>
-        </div>
+        {/* לוגו + קישור לדף הבית */}
+        <Link to="/" className="navbar-logo">LawLink</Link>
 
         {showAddLawyerModal && (
           <AddLawyerModal onClose={() => setShowAddLawyerModal(false)} />
