@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "../styles/Meeting.css";
+
 
 function Meeting() {
     const [date, setDate] = useState("");
@@ -31,28 +33,28 @@ function Meeting() {
     };
 
     return (
-        <div style={{ padding: "20px", maxWidth: "400px", margin: "auto", textAlign: "center" }}>
-            <h2>Schedule a Meeting</h2>
+        <div className="meeting-container">
+            <h2 className="meeting-title">Schedule a Meeting</h2>
             <input
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                style={{ display: "block", marginBottom: "10px", width: "100%", padding: "8px" }}
+                className="meeting-input"
             />
             <input
                 type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                style={{ display: "block", marginBottom: "10px", width: "100%", padding: "8px" }}
+                className="meeting-input"
             />
             <input
                 type="text"
                 placeholder="Meeting Subject"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                style={{ display: "block", marginBottom: "10px", width: "100%", padding: "8px" }}
+                className="meeting-input"
             />
-            <button onClick={handleSubmit} style={{ padding: "10px 20px", cursor: "pointer" }}>
+            <button onClick={handleSubmit} className="meeting-button">
                 Add to Google Calendar
             </button>
         </div>

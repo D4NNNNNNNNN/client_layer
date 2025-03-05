@@ -73,13 +73,7 @@ function LawyersMap() {
     specialty: " הוצאה לפועל",
     phone: "055-5678656"
 },
-{
-    id: 9,
-    name: "עו״ד איתמר שלמה ",
-    position: [32.563051,35.023989],
-    specialty: "  נד״לן",
-    phone: "055-9876565"
-},
+ 
 
 
     ]);
