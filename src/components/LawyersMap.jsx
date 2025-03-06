@@ -94,6 +94,20 @@ function LawyersMap() {
     specialty: "דיני ירושה",
     phone: "055-8878777"
 },
+{
+    id: 12,
+    name: "עו״ד  דן אסולין",
+    position: [32.171371,35.100525],
+    specialty: "פלילי ",
+    phone: "054-6333544"
+},
+{
+    id: 13,
+    name: "עו״ד יוסף מקסימוב",
+    position: [32.786745,35.015350],
+    specialty: "נדל״ן ",
+    phone: "058-3257717"
+},
 
 
 

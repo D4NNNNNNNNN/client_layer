@@ -58,9 +58,8 @@ function Navbar() {
           <li className="nav-item"><Link to="/info" className="nav-links">📚 מידע שימושי</Link></li>
           <li className="nav-item"><Link to="/specialties" className="nav-links">⚖️ תחומי התמחות</Link></li>
           <li className="nav-item"><Link to="/meeting" className="nav-links"> 📅 פגישה  </Link></li>
-          <li className="nav-item">
-            <Link to="/map" className="nav-links">🗺️ מפת עורכי דין</Link>
-          </li>
+          <li className="nav-item"><Link to="/map" className="nav-links">🗺️ מפת עורכי דין</Link></li>
+          
           {!loggedIn && (
             <li className="nav-item"><Link to="/register" className="nav-links">👤 הרשמה</Link></li>
           )}
@@ -76,6 +75,8 @@ function Navbar() {
 
         {showAddLawyerModal && (
           <AddLawyerModal onClose={() => setShowAddLawyerModal(false)} />
+
+          
         )}
       </div>
     </nav>
