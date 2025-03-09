@@ -1,18 +1,12 @@
 import { useParams } from 'react-router-dom';
 import '../styles/SpecialtyPage.css'; // קובץ CSS חדש לעיצוב הריבועים
-
-function SpecialtyPage() {
-    const { id } = useParams();
-    const numericId = parseInt(id, 10); // ✅ ממיר את ה-ID למספר
-
-
     // מידע על עורכי דין לפי תחום
-    const lawyersBySpecialty = {
+   export const lawyersBySpecialty = {
         1: [ // דיני משפחה
             {
                 id: 1,
                 name: "עו'ד ישראל ישראלי",
-                experience: 15,
+                experience: 2,
                 location: "תל אביב",
                 cases: 250,
                 description: "מתמחה בדיני משפחה וגירושין למעלה מ-15 שנה. מומחה בהסכמי ממון וסכסוכי משמורת.",
@@ -1233,7 +1227,7 @@ function SpecialtyPage() {
     };
 
     // מיפוי שמות התחומים
-    const specialtyNames = {
+    export const specialtyNames = {
         1: "דיני משפחה",
         2: "דיני עבודה",
         3: "נדל'ן",
@@ -1245,6 +1239,12 @@ function SpecialtyPage() {
         9: "דיני ירושה",
         10: "דיני מיסים"
     };
+
+    export function SpecialtyPage() {
+    const { id } = useParams();
+    const numericId = parseInt(id, 10); // ✅ ממיר את ה-ID למספר
+
+
 
     const lawyers = lawyersBySpecialty[id] || [];
     const specialtyName = specialtyNames[id] || "תחום לא ידוע";

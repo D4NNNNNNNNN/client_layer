@@ -1,42 +1,79 @@
-import React from "react";
-import Carousel from "../components/Carousel";
-import { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LawyersMap from '../components/LawyersMap';
-
-
+import { lawyersBySpecialty } from './SpecialtyPage';
 
 function Home() {
+  // State management
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [specialty, setSpecialty] = useState('');
   const [experience, setExperience] = useState('');
   const [location, setLocation] = useState('');
-  const [specialty, setSpecialty] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
 
+  // Constants
   const specialties = [
-    { id: 1, name: 'דיני משפחה', icon: '👨‍👩‍👧‍👦' },
-    { id: 2, name: 'דיני עבודה', icon: '💼' },
-    { id: 3, name: "נדל\"ן", icon: '🏠' },
-    { id: 4, name: 'תעבורה', icon: '🚗' },
-    { id: 5, name: 'פלילי', icon: '⚖️' },
-    { id: 6, name: 'נזיקין', icon: '🤕' },
-    { id: 7, name: 'הוצאה לפועל', icon: '📋' },
-    { id: 8, name: 'דיני חברות', icon: '🏢' },
-    { id: 9, name: 'דיני ירושה', icon: '📜' },
-    { id: 10, name: 'דיני מיסים', icon: '💰' }
+    { id: 1, name: "דיני משפחה", icon: "👨‍👩‍👧‍👦" },
+    { id: 2, name: "דיני עבודה", icon: "💼" },
+    { id: 3, name: "נדל'ן", icon: "🏠" },
+    { id: 4, name: "תעבורה", icon: "🚗" },
+    { id: 5, name: "פלילי", icon: "⚖️" },
+    { id: 6, name: "נזיקין", icon: "🤕" },
+    { id: 7, name: "הוצאה לפועל", icon: "📋" },
+    { id: 8, name: "דיני חברות", icon: "🏢" },
+    { id: 9, name: "דיני ירושה", icon: "📜" },
+    { id: 10, name: "דיני מיסים", icon: "💰" }
   ];
 
-  const locations = ['תל אביב', 'ירושלים', 'חיפה', 'באר שבע', 'אשדוד'];
+  // Get all lawyers with their specialty ID
+  const getAllLawyers = useMemo(() => {
+    const allLawyers = [];
+    Object.entries(lawyersBySpecialty).forEach(([specialtyId, lawyers]) => {
+      const lawyersWithSpecialty = lawyers.map(lawyer => ({
+        ...lawyer,
+        specialtyId: Number(specialtyId)
+      }));
+      allLawyers.push(...lawyersWithSpecialty);
+    });
+    return allLawyers;
+  }, []);
 
+  // Get unique locations
+  const locations = useMemo(() => {
+    return [...new Set(getAllLawyers.map(lawyer => lawyer.location))].sort();
+  }, [getAllLawyers]);
+
+  // Search handling
   const handleSearch = (e) => {
     e.preventDefault();
-    const queryParams = new URLSearchParams();
-    if (searchQuery) queryParams.append('q', searchQuery);
-    if (experience) queryParams.append('experience', experience);
-    if (location) queryParams.append('location', location);
-    if (specialty) queryParams.append('specialty', specialty);
-    navigate(`/search?${queryParams.toString()}`);
+    
+    const filtered = getAllLawyers.filter(lawyer => {
+      // Name filter
+      const nameMatch = !searchQuery || 
+        lawyer.name.toLowerCase().includes(searchQuery.toLowerCase());
+
+      // Specialty filter
+      const specialtyMatch = !specialty || 
+        specialties.find(sp => sp.name === specialty)?.id === lawyer.specialtyId;
+
+      // Location filter
+      const locationMatch = !location || 
+        lawyer.location === location;
+
+      // Experience filter
+      const experienceMatch = !experience || (
+        (experience === '1-5' && lawyer.experience >= 1 && lawyer.experience <= 5) ||
+        (experience === '6-10' && lawyer.experience >= 6 && lawyer.experience <= 10) ||
+        (experience === '11-20' && lawyer.experience >= 11 && lawyer.experience <= 20) ||
+        (experience === '20+' && lawyer.experience > 20)
+      );
+
+      return nameMatch && specialtyMatch && locationMatch && experienceMatch;
+    });
+
+    setSearchResults(filtered);
   };
 
   return (
@@ -49,7 +86,7 @@ function Home() {
           <div className="search-box">
             {!isSearchOpen ? (
               <button 
-                className="button search-button"
+                className="search-button"
                 onClick={() => setIsSearchOpen(true)}
               >
                 🔎 התחל לחפש
@@ -62,34 +99,81 @@ function Home() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <Carousel />
                 
-                <select value={specialty} onChange={(e) => setSpecialty(e.target.value)}>
+                <select 
+                  value={specialty} 
+                  onChange={(e) => setSpecialty(e.target.value)}
+                >
                   <option value="">📌 תחום התמחות</option>
                   {specialties.map((sp) => (
-                    <option key={sp.id} value={sp.name}>{sp.icon} {sp.name}</option>
+                    <option key={sp.id} value={sp.name}>
+                      {sp.icon} {sp.name}
+                    </option>
                   ))}
                 </select>
 
-                <select value={experience} onChange={(e) => setExperience(e.target.value)}>
+                <select 
+                  value={experience} 
+                  onChange={(e) => setExperience(e.target.value)}
+                >
                   <option value="">⌛ שנות ניסיון</option>
-                  <option value="1-3">1-3 שנים</option>
-                  <option value="4-7">4-7 שנים</option>
-                  <option value="8-12">8-12 שנים</option>
-                  <option value="13+">13+ שנים</option>
+                  <option value="1-5">1-5 שנים</option>
+                  <option value="6-10">6-10 שנים</option>
+                  <option value="11-20">11-20 שנים</option>
+                  <option value="20+">מעל 20 שנים</option>
                 </select>
 
-                <select value={location} onChange={(e) => setLocation(e.target.value)}>
+                <select 
+                  value={location} 
+                  onChange={(e) => setLocation(e.target.value)}
+                >
                   <option value="">📍 בחר מיקום</option>
-                  {locations.map((loc, index) => (
-                    <option key={index} value={loc}>{loc}</option>
+                  {locations.map((loc) => (
+                    <option key={loc} value={loc}>{loc}</option>
                   ))}
                 </select>
 
-                <button type="submit" className="button">🔍 חפש</button>
+                <button type="submit" className="search-button">
+                  🔍 חפש
+                </button>
               </form>
             )}
           </div>
+
+          {searchResults.length > 0 && (
+            <div className="search-results">
+              <h2>תוצאות חיפוש</h2>
+              <div className="lawyers-grid">
+                {searchResults.map(lawyer => (
+                  <div key={lawyer.id} className="lawyer-card">
+                    <div className="lawyer-header">
+                      <span className="lawyer-avatar">{lawyer.image}</span>
+                      <h3>{lawyer.name}</h3>
+                    </div>
+                    <div className="lawyer-info">
+                      <p><strong>ניסיון:</strong> {lawyer.experience} שנים</p>
+                      <p><strong>מיקום:</strong> {lawyer.location}</p>
+                      <div className="expertise-tags">
+                        {lawyer.expertise.slice(0, 2).map((exp, index) => (
+                          <span key={index} className="expertise-tag">{exp}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="lawyer-rating">
+                      <span className="stars">{'⭐'.repeat(Math.floor(lawyer.rating))}</span>
+                      <span>({lawyer.reviews})</span>
+                    </div>
+                    <button 
+                      className="contact-button"
+                      onClick={() => navigate(`/lawyer/${lawyer.id}`)}
+                    >
+                      צפה בפרופיל
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="map-container">

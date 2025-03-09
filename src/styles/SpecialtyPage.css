@@ -1,114 +1,118 @@
 .specialty-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* 🎯 עיצוב הגריד - יצירת ריבועים מסודרים */
+.specialty-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1a237e;
+}
+
+.search-bar {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    direction: rtl;
+}
+
 .lawyers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* מחלק את הרוחב לריבועים */
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-/* 📌 כרטיס של עורך דין */
 .lawyer-card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-  width: 100%;
-  max-width: 320px;
-  min-height: 350px; /* קובע גובה אחיד לכל הכרטיסים */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
 .lawyer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
 }
 
-/* 🏛️ כותרת */
 .lawyer-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .lawyer-avatar {
-  font-size: 40px;
+    font-size: 2rem;
 }
 
 .lawyer-info {
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.lawyer-description {
-  font-size: 16px;
-  color: #333;
-  margin: 10px 0;
-}
-
-/* 🏷️ תחומי התמחות */
-.lawyer-expertise {
-  margin-top: 10px;
+    margin-bottom: 1rem;
 }
 
 .expertise-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .expertise-tag {
-  background: #e3f2fd;
-  color: #0d47a1;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 14px;
+    background: #e3f2fd;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #1565c0;
 }
 
-/* ⭐ דירוג וביקורות */
 .lawyer-rating {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
 }
 
 .stars {
-  color: gold;
-  font-size: 18px;
+    color: #ffc107;
 }
 
-/* 📞 כפתור צור קשר */
 .contact-button {
-  background: #0d47a1;
-  color: white;
-  padding: 12px 15px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: 0.3s;
-  width: 100%;
-  margin-top: 15px;
+    width: 100%;
+    padding: 0.8rem;
+    background: #1a237e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .contact-button:hover {
-  background: #083b82;
+    background: #283593;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .specialty-container {
+        padding: 1rem;
+    }
+    
+    .lawyers-grid {
+        grid-template-columns: 1fr;
+    }
 }
