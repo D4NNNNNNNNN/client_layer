@@ -7,14 +7,14 @@ import Specialties from './pages/Specialties';
 import UsefulInfo from './pages/UsefulInfo';
 import News from './pages/News';
 import Articles from './pages/Articles';
-import SpecialtyPage from './pages/SpecialtyPage'; // ✅ ייבוא של הדף שחסר
+import SpecialtyPage from './pages/SpecialtyPage';
+import SearchResults from './pages/SearchResults'; // ✅ ייבוא חדש
 import './styles/App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AdminDashboard from './pages/AdminDashboard';
 import LawyersMap from './components/LawyersMap';
 import Meeting from './pages/Meeting';
-
 
 function App() {
   return (
@@ -31,11 +31,11 @@ function App() {
           <Route path="/info" element={<UsefulInfo />} />
           <Route path="/news" element={<News />} />
           <Route path="/articles" element={<Articles />} />
-          <Route path="/specialty/:id" element={<SpecialtyPage />} /> {/* ✅ זה מה שהיה חסר */}
+          <Route path="/specialty/:id" element={<SpecialtyPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/map" element={<LawyersMap />} />
           <Route path="/meeting" element={<Meeting />} />
-
+          <Route path="/search-results" element={<SearchResults />} /> {/* ✅ ראוט חדש */}
         </Routes>
       </div>
     </Router>

@@ -46,36 +46,33 @@ function Home() {
   }, [getAllLawyers]);
 
   // Search handling
-  const handleSearch = (e) => {
-    e.preventDefault();
-    
-    const filtered = getAllLawyers.filter(lawyer => {
-      // Name filter
-      const nameMatch = !searchQuery || 
-        lawyer.name.toLowerCase().includes(searchQuery.toLowerCase());
+// ...existing code...
 
-      // Specialty filter
-      const specialtyMatch = !specialty || 
-        specialties.find(sp => sp.name === specialty)?.id === lawyer.specialtyId;
+const handleSearch = (e) => {
+  e.preventDefault();
+  
+  const filtered = getAllLawyers.filter(lawyer => {
+    const nameMatch = !searchQuery || 
+      lawyer.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const specialtyMatch = !specialty || 
+      specialties.find(sp => sp.name === specialty)?.id === lawyer.specialtyId;
+    const locationMatch = !location || 
+      lawyer.location === location;
+    const experienceMatch = !experience || (
+      (experience === '1-5' && lawyer.experience >= 1 && lawyer.experience <= 5) ||
+      (experience === '6-10' && lawyer.experience >= 6 && lawyer.experience <= 10) ||
+      (experience === '11-20' && lawyer.experience >= 11 && lawyer.experience <= 20) ||
+      (experience === '20+' && lawyer.experience > 20)
+    );
 
-      // Location filter
-      const locationMatch = !location || 
-        lawyer.location === location;
+    return nameMatch && specialtyMatch && locationMatch && experienceMatch;
+  });
 
-      // Experience filter
-      const experienceMatch = !experience || (
-        (experience === '1-5' && lawyer.experience >= 1 && lawyer.experience <= 5) ||
-        (experience === '6-10' && lawyer.experience >= 6 && lawyer.experience <= 10) ||
-        (experience === '11-20' && lawyer.experience >= 11 && lawyer.experience <= 20) ||
-        (experience === '20+' && lawyer.experience > 20)
-      );
+  // במקום setSearchResults, נשתמש בניווט
+  navigate('/search-results', { state: { results: filtered } });
+};
 
-      return nameMatch && specialtyMatch && locationMatch && experienceMatch;
-    });
-
-    setSearchResults(filtered);
-  };
-
+// ...existing code...
   return (
     <div className="home-container">
       <div className="top-section">
